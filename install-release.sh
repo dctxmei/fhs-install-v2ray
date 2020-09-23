@@ -383,7 +383,7 @@ install_v2ray() {
 
 install_startup_service_file() {
     if [[ ! -f '/etc/systemd/system/v2ray.service' ]]; then
-        mkdir "${TMP_DIRECTORY}systemd/system/"
+        mkdir -p "${TMP_DIRECTORY}systemd/system/"
         install_software curl
         if ! curl ${PROXY} -s -o "${TMP_DIRECTORY}systemd/system/v2ray.service" 'https://raw.githubusercontent.workers.dev/dctxmei/fhs-install-v2ray/master/systemd/system/v2ray.service'; then
             echo 'error: Failed to start service file download! Please check your network or try again.'
